@@ -17,10 +17,13 @@ public class Main {
 
         driver.get("https://habr.ru/");
 
-        WebElement soglashenie = driver.findElement(By.xpath("//*[@class='tm-header__become-author-btn']"));
-        soglashenie.click();
+        WebElement element = driver.findElement(By.xpath("//*[@class='tm-header__become-author-btn']"));
+        element.click();
 
-        String par = soglashenie.getText();
+        String par = element.getCssValue("display");
         System.out.println(par);
+        String par2 = element.getCssValue("color");
+        System.out.println(par2);
+
     }
 }
