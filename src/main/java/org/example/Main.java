@@ -2,6 +2,7 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,15 +16,11 @@ public class Main {
         Duration duration = Duration.ofSeconds(10);
         driver.manage().timeouts().implicitlyWait(duration);
 
-        driver.get("https://habr.ru/");
+        driver.get("https://azbyka.ru/otechnik/Iosif_Isihast/polnoe-sobranie-tvorenij/5_11");
 
-        WebElement element = driver.findElement(By.xpath("//*[@class='tm-header__become-author-btn']"));
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"selectable-content\"]/div[6]/form/input[2]"));
         element.click();
-
-        String par = element.getCssValue("display");
-        System.out.println(par);
-        String par2 = element.getCssValue("color");
-        System.out.println(par2);
+        element.sendKeys("позволяет ему свободно", Keys.ENTER);
 
     }
 }
